@@ -6,6 +6,9 @@
 #include <QStatusBar>
 #include <QLabel>
 #include <QPushButton>
+#include <QRubberBand>
+#include <QSpinBox>
+#include <QCheckBox>
 
 class MouseEvent : public QMainWindow
 {
@@ -27,8 +30,17 @@ private:
     QLabel * MousePosLabel;
     QImage          srcImg;
     QImage          dstImg;
+    
+    // Region selection for zoom
+    QRubberBand     *rubberBand;
+    QPoint          selectionStart;
+    bool            isSelecting;
+    QCheckBox       *zoomModeCheckbox;
+    QSpinBox        *zoomRatioSpinBox;
+    QLabel          *zoomRatioLabel;
 
 private slots:
     void importImage();
+    void toggleZoomMode(bool checked);
 };
 #endif // MOUSEEVENT_H
