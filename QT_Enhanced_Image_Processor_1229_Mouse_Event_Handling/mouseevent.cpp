@@ -64,9 +64,9 @@ MouseEvent::MouseEvent(QWidget *parent)
     
     if (srcImg.isNull())
     {
-        QPixmap *initPixmap= new QPixmap(300,200);
-        initPixmap->fill(QColor(255,255,255));
-        inWin->setPixmap(*initPixmap);
+        QPixmap initPixmap(300,200);
+        initPixmap.fill(QColor(255,255,255));
+        inWin->setPixmap(initPixmap);
     }
     
     setMouseTracking(true);
